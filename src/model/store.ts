@@ -174,12 +174,23 @@ export default class Store {
   }
 
   private determineActivePlayer(activePlayerId?: string): MediaPlayer {
-    const playerId = activePlayerId || this.config.entityId || this.getActivePlayerFromStorage();
+    const playerId = activePlayerId || this.config.entityId || this.getActivePlayerMethod();
     return (
       this.allGroups.find((group) => group.getMember(playerId) !== undefined) ||
       this.allGroups.find((group) => group.isPlaying()) ||
       this.allGroups[0]
     );
+  }
+
+  private getActivePlayerMethod() {
+    if (this.config.storePlayerInUrl) {
+      return this.getActivePlayerFromUrl();
+    }
+    return this.getActivePlayerFromStorage();
+  }
+
+  private getActivePlayerFromUrl() {
+    return window.location.href.includes('#') ? window.location.href.replace(/.*#/g, '') : '';
   }
 
   private getActivePlayerFromStorage() {

@@ -158,7 +158,7 @@ export const ADVANCED_SCHEMA = [
     selector: { boolean: {} },
   },
   {
-    name: 'inverseGroupMuteState',
+    name: 'storePlayerInUrl',
     selector: { boolean: {} },
   },
   {

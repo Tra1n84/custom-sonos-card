@@ -101,6 +101,7 @@ export interface CardConfig extends LovelaceCardConfig {
   mediaTitleReplacement?: string;
   stopInsteadOfPause?: boolean;
   inverseGroupMuteState?: boolean;
+  storePlayerInUrl?: boolean;
   sortFavoritesByType?: boolean;
 }
 
