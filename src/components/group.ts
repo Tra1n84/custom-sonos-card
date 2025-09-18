@@ -72,11 +72,11 @@ class Group extends LitElement {
   private handleGroupClicked() {
     if (!this.selected) {
       this.selected = true;
-      if (this.store.config.storePlayerInUrl) {
+      if (this.store.config.storePlayerInSessionStorage) {
+        window.sessionStorage.setItem('sonosCardActivePlayer', this.player.id);
+      } else {
         const newUrl = window.location.href.replace(/#.*/g, '');
         window.location.replace(`${newUrl}#${this.player.id}`);
-      } else {
-        window.sessionStorage.sonosCardActivePlayer = this.player.id;
       }
       this.dispatchEntityIdEvent();
     }

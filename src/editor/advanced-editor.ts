@@ -166,7 +166,7 @@ export const ADVANCED_SCHEMA = [
     selector: { boolean: {} },
   },
   {
-    name: 'storePlayerInUrl',
+    name: 'storePlayerInSessionStorage',
     selector: { boolean: {} },
   }
 ];
